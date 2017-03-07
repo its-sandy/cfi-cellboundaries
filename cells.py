@@ -14,11 +14,6 @@ while(cap.isOpened()):
 	kernel = np.ones((5,5),np.uint8)
 	dilation = cv2.dilate(blur,kernel,iterations = 1)
 	edges = cv2.Canny(dilation,100,200)
-	contours, hierarchy = cv2.findContours(edges,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-	for cnt in contours:
-		epsilon = 0.1*cv2.arcLength(cnt,True)		# Contour approximation to get lesser corners
-		approx = cv2.approxPolyDP(cnt,epsilon,True)	# array containing the approximated contours
-		cv2.drawContours(edges,approx,-1,(255,128,0),5)
 	cv2.imshow('edges',edges)
 	#cv2.imshow('frame',frame)
 	if cv2.waitKey(1) & 0xFF == ord('q'):
