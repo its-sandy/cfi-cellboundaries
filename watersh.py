@@ -11,7 +11,7 @@ opening = cv2.morphologyEx(thresh,cv2.MORPH_OPEN,kernel, iterations = 2)
 # sure background area 
 sure_bg = cv2.dilate(opening,kernel,iterations=2)
 # Finding sure foreground area
-dist_transform = cv2.distanceTransform(opening,cv2.DIST_L1,5) 
+dist_transform = cv2.distanceTransform(opening,cv2.DIST_L2,5) 
 ret, sure_fg = cv2.threshold(dist_transform,0.15*dist_transform.max(),255,0)
 # Finding unknown region 
 sure_fg = np.uint8(sure_fg) 
