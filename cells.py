@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 
+# Reading video
 cap = cv2.VideoCapture('cells.avi')
 
 while(cap.isOpened()):
